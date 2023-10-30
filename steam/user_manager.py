@@ -37,13 +37,16 @@ class UserManager:
             json.dump(serialized, save)
 
     def load_data(self):
-        parsed = {}
+        parsed = None
         
         with open(self.save_location, "r") as save:
             try:
                 parsed = json.load(save)
             except ValueError as e:
                 pass
+
+        if not parsed:
+            parsed = {}
 
         for username, properties in parsed.items():
             user = User(self.store, username)
