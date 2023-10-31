@@ -1,3 +1,4 @@
+# Input function that ensures that the user inputs an integer and will automatically return the conversion
 def int_input(input_text):
     response = input(input_text)
 
@@ -7,6 +8,7 @@ def int_input(input_text):
 
     return int(response)
 
+# This function uses the int_input function and checks if it's result is within a minimum of 1 and the specified max range
 # In this program, choices always start at one so the min is 1 instead of 0
 def range_input(input_text, max):
     response = int_input(input_text)
@@ -17,6 +19,7 @@ def range_input(input_text, max):
     
     return response
 
+# This input function uses the range_input function and prints a formatted result from a list
 def choice_input(input_text, list):
     formatted = ""
 
