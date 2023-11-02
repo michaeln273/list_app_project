@@ -1,9 +1,7 @@
 from steam.api import steam_request, urls
 from steam.utility import range_input
 
-
 class Game:
-
   def __init__(self, id):
     self.id = str(id)
     self.fetch()

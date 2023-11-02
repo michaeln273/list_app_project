@@ -78,6 +78,9 @@ class User:
 
         print(f"Removed {game['obj'].name} from your library")
         self.owned_games.remove(game)
+
+    def swap_game_index(self):
+        pass
     
     def list_game_details(self):
         game = self.list_and_choose("view details about")
