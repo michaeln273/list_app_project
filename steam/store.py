@@ -9,6 +9,7 @@ sort_funcs = [
     lambda game: len(game["name"]),
 ]
 
+# This class implements the steam store searching feature
 class Store:
     def __init__(self):
         self.recently_viewed = []
