@@ -2,14 +2,18 @@ from steam.user_manager import UserManager
 from steam.utility import range_input
 import os
 
+# This functiom executes a bash command that clears the output 
 def clear_output():
     os.system("clear")
 
+# ANSI escape codes, organized into a class for ease of use
 class Format:
     BOLD = "\033[1m"
     UNDERLINE = "\033[4m"
     END = "\033[0m"
 
+# The DisplayManager class ties all the classes together and provides
+# and manages the display aspect of the application
 class DisplayManager:
     def __init__(self):
         manager = UserManager("./save.json")
@@ -18,7 +22,8 @@ class DisplayManager:
 
         user = manager.active_user
         store = manager.store
-
+        
+        # Functions that require access to the active_user variable are called in lambdas in case the active_user variables changes
         self.options = {
             "Shop": [
                 ["View steam catalog", store.search],
@@ -47,6 +52,7 @@ class DisplayManager:
         self.store = store
         self.manager = manager
 
+    # Format all the choices and display them to the user
     def poll_choices(self):
         options = self.options
         
@@ -73,7 +79,8 @@ class DisplayManager:
         input("Press enter to continue to options: ")
         clear_output()
         self.poll_choices()
-    
+        
+    # The first line printed to the console, always called after the terminal is cleared
     def format_header(self):
         user = self.manager.active_user
         name = user.username
