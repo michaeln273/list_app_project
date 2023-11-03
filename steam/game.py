@@ -1,6 +1,9 @@
 from steam.api import steam_request, urls
 from steam.utility import range_input
 
+# Game class, stores properties relevant to the game class as well as
+# as well as providing functionality to view certain properties of the object
+# By asking for user input
 class Game:
   def __init__(self, id):
     self.id = str(id)
