@@ -80,8 +80,26 @@ class User:
         self.owned_games.remove(game)
 
     def swap_game_index(self):
-        pass
-    
+        if len(self.owned_games) < 2:
+            print("You must own at least 2 games in order to swap index")
+            return
+
+        game_1 = self.list_and_choose("choose to swap? (1)")
+        print("------------------------")
+        game_2 = self.list_and_choose("choose to swap? (2)")
+
+        if game_1 == game_2:
+            print("These games are already at the same index")
+            return
+        
+        games = self.owned_games
+        game_1_i = games.index(game_1)
+        game_2_i = games.index(game_2)
+
+        games[game_1_i], games[game_2_i] = games[game_2_i], games[game_1_i] 
+
+        print(f"Index swapped, {game_1['obj'].name} is now index {game_2_i + 1} and {game_2['obj'].name} is now index {game_1_i + 1}")
+
     def list_game_details(self):
         game = self.list_and_choose("view details about")
         if game == None: return
@@ -101,7 +119,7 @@ class User:
             print("You don't own any games")
             return False
         
-        print(f"You own {game_length} games")
+        # print(f"You own {game_length} games")
 
         for i, game in enumerate(self.owned_games):
             print(f"\n{i + 1}: {game['obj'].name}")

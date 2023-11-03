@@ -70,14 +70,13 @@ class UserManager:
         user_len = len(username)
         if user_len < min_user_len or user_len > max_user_len:
             print("Does not meet username requirements, try again")
-            self.create_user()
-            return
+            return self.create_user()
+            
         
         for user in self.users:
             if user.username == username:
                 print("This username is already taken, choose another one")
-                self.create_user()
-                return
+                return self.create_user()
         
         user = User(self.store, username)
         self.users.append(user)
@@ -97,7 +96,7 @@ class UserManager:
             user = self.users[choice]
 
         self.active_user = user
-
+        
         print(f"Set {user.username} to the active user")
 
     def delete_account(self):

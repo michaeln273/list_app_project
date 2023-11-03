@@ -30,6 +30,7 @@ class DisplayManager:
                 ["Favorite a game", lambda: manager.active_user.favorite_game()],
                 ["Unfavorite a game", lambda: manager.active_user.unfavorite_game()],
                 ["Delete a game", lambda: manager.active_user.delete_game()],
+                ["Swap the index of a game", lambda: manager.active_user.swap_game_index()],
                 ["List your game library", lambda: manager.active_user.list_library()],
                 ["View details on a game you own", lambda: manager.active_user.list_game_details()]
             ],
